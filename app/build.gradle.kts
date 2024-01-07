@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -67,7 +68,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    testImplementation("androidx.room:room-testing:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
 
     // Navigation Component
     implementation ("androidx.navigation:navigation-fragment-ktx:2.2.2")
@@ -84,4 +85,9 @@ dependencies {
 
 
 
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

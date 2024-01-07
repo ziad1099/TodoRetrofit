@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 binding.PB.isVisible=false
             }
         }
-                    viewModel.addTodo(todoAdapter.todos[1])
+//                    viewModel.addTodo(todoAdapter.todos[1])
     }
 
     fun setupRecyclerView()=binding.rvTodos.apply {
