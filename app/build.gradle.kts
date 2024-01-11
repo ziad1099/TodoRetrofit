@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    kotlin("kapt")
 }
 
 android {
@@ -63,12 +63,12 @@ dependencies {
     //splash
     implementation ("androidx.core:core-splashscreen:1.0.0")
     //Room
-    val room_version = "2.6.1"
+    val roomVersion = "2.6.1"
 
-    implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
 
     // Navigation Component
     implementation ("androidx.navigation:navigation-fragment-ktx:2.2.2")
@@ -78,11 +78,6 @@ dependencies {
 //    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72")
 //    api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
 //    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5")
-
-
-
-
-
 
 
 }
