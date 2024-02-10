@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -78,6 +79,12 @@ dependencies {
 //    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72")
 //    api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
 //    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5")
+    //Dagger hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
 
 }

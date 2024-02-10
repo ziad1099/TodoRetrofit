@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
@@ -13,14 +14,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zezo.todoretrofit.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import okio.IOException
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var todoAdapter: TodoAdapter
-    private lateinit var viewModel: MainActivityViewModel
+    private val viewModel:MainActivityViewModel by viewModels()
+//    private lateinit var viewModel: MainActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        Thread.sleep(3000)
@@ -28,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // factory and view model
-        val viewModelFactory = ViewModelFactory(application)
-        viewModel = ViewModelProvider(this, viewModelFactory)[MainActivityViewModel::class.java]
-
+//        val viewModelFactory = ViewModelFactory(application)
+//        viewModel = ViewModelProvider(this, viewModelFactory)[MainActivityViewModel::class.java]
+        viewModel
         setupRecyclerView()
         viewModel.readAllData.observe(this,Observer{todo->
             todoAdapter.setData(todo)
