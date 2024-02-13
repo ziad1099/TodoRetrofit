@@ -1,6 +1,7 @@
 package com.zezo.todoretrofit
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,23 +20,15 @@ class MainActivityViewModel @Inject constructor(
 ) : ViewModel() {
     val readAllData: LiveData<List<Todo>>
     private val repo: TodoRepo
-
+    val TAG: String = "ViewModelTAG"
+    @Inject lateinit var name:String
     init {
         val todoDao = todoDatabase.getDataBase(applicationContext).todoDao()
         repo = TodoRepo(todoDao)
         readAllData = repo.readAllData
+//        Log.d(TAG, name)
     }
 
-//    fun fetchDatafromApi() {
-//        viewModelScope.launch {
-//            val response = try {
-//                RetrofitInstance.api.getTodo()
-//            } catch (e: IOException) {
-//                return@launch
-//            }
-//
-//        }
-//    }
 
     fun addTodo(todo: Todo) {
         viewModelScope.launch(Dispatchers.IO) {

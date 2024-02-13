@@ -17,6 +17,7 @@ import com.zezo.todoretrofit.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import okio.IOException
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var todoAdapter: TodoAdapter
     private val viewModel:MainActivityViewModel by viewModels()
 //    private lateinit var viewModel: MainActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        Thread.sleep(3000)
